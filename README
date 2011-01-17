@@ -3,6 +3,8 @@ Implementations of algorithms from CMSC27200.
 union-find
     A data structure for partitioning a set. Supports O(1) union of sets and
     O(inverse-ackermann(n)) lookup - i.e. what set does element X belong to.
+graph
+    Adjacency list-based implementation of a weighted graph
 kruskal
     Kruskal's algorithm for finding a minimum spanning tree on a weighted
     connected graph.
