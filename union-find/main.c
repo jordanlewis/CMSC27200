@@ -3,25 +3,25 @@
 
 int main(int argc, char **argv)
 {
-    struct node *nodes = (struct node *) calloc(10, sizeof(struct node));
+    struct uf_node *nodes = (struct uf_node *) calloc(10, sizeof(struct uf_node));
 
     int i;
     for (i = 0; i < 10; i++)
     {
-        node_create(i, nodes + i);
+        uf_node_create(i, nodes + i);
     }
 
-    struct node *even = nodes;
-    struct node *odd = nodes + 1;
+    struct uf_node *even = nodes;
+    struct uf_node *odd = nodes + 1;
     for (i = 0; i < 10; i++)
     {
         if (i % 2 == 0)
         {
-            even = node_union(even, nodes + i);
+            even = uf_node_union(even, nodes + i);
         }
         else
         {
-            odd = node_union(odd, nodes + i);
+            odd = uf_node_union(odd, nodes + i);
         }
     }
 
@@ -29,12 +29,12 @@ int main(int argc, char **argv)
     {
         if (i % 2 == 0)
         {
-            if (node_find(nodes + i) != even)
+            if (uf_node_find(nodes + i) != even)
                 return -1;
         }
         else
         {
-            if (node_find(nodes + i) != odd)
+            if (uf_node_find(nodes + i) != odd)
                 return -1;
         }
     }

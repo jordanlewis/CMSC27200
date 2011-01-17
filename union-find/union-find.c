@@ -1,10 +1,10 @@
 #include <stdlib.h>
 #include "union-find.h"
 
-struct node *node_union(struct node *a, struct node *b)
+struct uf_node *uf_node_union(struct uf_node *a, struct uf_node *b)
 {
-    a = node_find(a);
-    b = node_find(b);
+    a = uf_node_find(a);
+    b = uf_node_find(b);
 
     if (a == b)
         return a;
@@ -21,7 +21,7 @@ struct node *node_union(struct node *a, struct node *b)
     }
 }
 
-struct node *node_find(struct node *a)
+struct uf_node *uf_node_find(struct uf_node *a)
 {
     if (a == NULL)
         return NULL;
@@ -30,12 +30,12 @@ struct node *node_find(struct node *a)
         return a;
     else
     {
-        a->parent = node_find(a->parent);
+        a->parent = uf_node_find(a->parent);
         return a->parent;
     }
 }
 
-void node_create(int value, struct node *out)
+void uf_node_create(int value, struct uf_node *out)
 {
     out->value = value;
     out->parent = NULL;
