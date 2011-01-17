@@ -29,8 +29,10 @@ struct graph
 // make_graph populates a given graph struct with n_vertices vertices.
 void make_graph(int n_vertices, struct graph *g);
 // make_edge dynamically allocates memory for a new edge and adds it to g.
-void make_edge(struct graph *g, int u, int v);
+void make_edge(struct graph *g, int u, int v, int weight);
 // delete_edge removes the edge from u to v.
 void delete_edge(struct graph *g, int u, int v);
+
+void cons_edge_node(struct edge_node **list, struct edge_node *new);
 
 #endif
